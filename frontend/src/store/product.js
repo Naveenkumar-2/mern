@@ -10,7 +10,7 @@ export const useProductStore = create((set)=>  ({
             return {success: false, message:"please fill the blank"}
         }
 
-        const res = await fetch("http://localhost:5000/api/products",{
+        const res = await fetch("https://mern-back-q5jn.onrender.com/api/products",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -24,12 +24,12 @@ export const useProductStore = create((set)=>  ({
         return {success: true, message: "product created successfully."}
     },
     fetchProducts: async ()=>{
-        const res = await fetch("http://localhost:5000/api/products");
+        const res = await fetch("https://mern-back-q5jn.onrender.com/api/products");
         const data = await res.json();
         set({products:data.data});
     },
     deleteProduct: async (pid) => {
-        const res = await fetch(`http://localhost:5000/api/products/${pid}`,{
+        const res = await fetch(`https://mern-back-q5jn.onrender.com/api/products/${pid}`,{
             method:"DELETE"
         });
      const data = await res.json();
@@ -39,7 +39,7 @@ export const useProductStore = create((set)=>  ({
      return {success:true, message: data.message}
     },
     updateProducts: async (pid,updateProducts)=>{
-        const res = await fetch (`http://localhost:5000/api/products/${pid}`,{
+        const res = await fetch (`https://mern-back-q5jn.onrender.com/api/products/${pid}`,{
 
             method:"PUT",
             headers:{
